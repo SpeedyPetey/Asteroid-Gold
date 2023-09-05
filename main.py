@@ -295,11 +295,11 @@ class Main:
         self.bullets = 5
         self.meteor_images = []
         for i in range(1, 11):
-            self.meteor_images.append(pg.image.load( 'meteor{}.png'.format(i)).convert_alpha())
-        self.background = pg.image.load('starfield.png').convert_alpha()
+            self.meteor_images.append(pg.image.load( 'img/meteor{}.png'.format(i)).convert_alpha())
+        self.background = pg.image.load('img/starfield.png').convert_alpha()
         self.background = pg.transform.scale(self.background, (WIDTH, HEIGHT))
         self.background_rect = self.background.get_rect()
-        self.laser_img = pg.image.load("laser.png").convert_alpha()
+        self.laser_img = pg.image.load("img/laser.png").convert_alpha()
         self.laser_img_d = pg.transform.scale(self.laser_img, (4, 18))
         self.laser_img_u = pg.transform.flip(self.laser_img_d, False, True)
         self.laser_img_r = pg.transform.rotate(self.laser_img_d, 90)
@@ -347,55 +347,55 @@ class Main:
         self.explosion_anim['sm'] = []
         self.explosion_anim['player'] = []
         for i in range(9):
-            self.img = pg.image.load('regularExplosion0{}.png'.format(i)).convert_alpha()
+            self.img = pg.image.load('img/regularExplosion0{}.png'.format(i)).convert_alpha()
             self.img_lg = pg.transform.scale(self.img, (75, 75))
             self.explosion_anim['lg'].append(self.img_lg)
             self.img_sm = pg.transform.scale(self.img, (32, 32))
             self.explosion_anim['sm'].append(self.img_sm)
-            self.img = pg.image.load('sonicExplosion0{}.png'.format(i)).convert_alpha()
+            self.img = pg.image.load('img/sonicExplosion0{}.png'.format(i)).convert_alpha()
             self.img = pg.transform.scale(self.img, (75, 75))
             self.explosion_anim['player'].append(self.img)
         # load fireworks
         self.explosion_anim['fireworks'] = []
         for i in range(10):
-            self.img = pg.image.load('5000{}.png'.format(i)).convert_alpha()
+            self.img = pg.image.load('img/5000{}.png'.format(i)).convert_alpha()
             self.img = pg.transform.scale(self.img, (100, 100))
             self.explosion_anim['fireworks'].append(self.img)
-        self.img = pg.image.load('50010.png').convert_alpha()
+        self.img = pg.image.load('img/50010.png').convert_alpha()
         self.img = pg.transform.scale(self.img, (100, 100))
         self.explosion_anim['fireworks'].append(self.img)
-        self.img = pg.image.load('50011.png').convert_alpha()
+        self.img = pg.image.load('img/50011.png').convert_alpha()
         self.img = pg.transform.scale(self.img, (100, 100))
         self.explosion_anim['fireworks'].append(self.img)
         # load arrow keys
-        self.arrow_keys = pg.image.load('arrow_keys.png').convert_alpha()
+        self.arrow_keys = pg.image.load('img/arrow_keys.png').convert_alpha()
         self.arrow_keys = pg.transform.scale(self.arrow_keys, (320, 320))
         # load shoot key
-        self.shoot_key = pg.image.load('aim-clipart-Aim.png').convert_alpha()
+        self.shoot_key = pg.image.load('img/aim-clipart-Aim.png').convert_alpha()
         self.shoot_key = pg.transform.scale(self.shoot_key, (120, 120))
         # load and play music
         self.music = random.randrange(2)
         if self.music == 0:
-            pg.mixer.music.load('spacewalk.ogg')
+            pg.mixer.music.load('snd/spacewalk.ogg')
         if self.music == 1:
-            pg.mixer.music.load('throughspace.ogg')
+            pg.mixer.music.load('snd/throughspace.ogg')
         pg.mixer.music.play(loops=-1)
         # load other sound
-        self.shoot_sound = pg.mixer.Sound('Laser_Shoot.wav')
-        self.player_die_sound = pg.mixer.Sound('rumble1.ogg')
-        self.gold_sound = pg.mixer.Sound('gold.wav')
-        self.reload_gun_sound = pg.mixer.Sound('teleport.ogg')
-        self.teleport_sound = pg.mixer.Sound('portal.wav')
+        self.shoot_sound = pg.mixer.Sound('snd/Laser_Shoot.wav')
+        self.player_die_sound = pg.mixer.Sound('snd/rumble1.ogg')
+        self.gold_sound = pg.mixer.Sound('snd/gold.wav')
+        self.reload_gun_sound = pg.mixer.Sound('snd/teleport.ogg')
+        self.teleport_sound = pg.mixer.Sound('snd/portal.wav')
         self.expl_sounds = []
-        for snd in ['Explosion.wav', 'Explosion2.wav']:
+        for snd in ['snd/Explosion.wav', 'snd/Explosion2.wav']:
             self.expl_sounds.append(pg.mixer.Sound(snd))
         # load medals
         self.medal_imgs = []
         for i in range(7):
-            self.img = pg.image.load('shaded_medal{}.png'.format(i)).convert_alpha()
+            self.img = pg.image.load('img/shaded_medal{}.png'.format(i)).convert_alpha()
             self.medal_imgs.append(self.img)
         # load text img
-        self.arrow_img = pg.image.load('arrow.png').convert_alpha()
+        self.arrow_img = pg.image.load('img/arrow.png').convert_alpha()
         self.arrow_img = pg.transform.scale(self.arrow_img, (100, 31))
 
     def draw_text(self, text, size, color, x, y, align="topleft"):
@@ -594,7 +594,7 @@ class Main:
             self.gun = False
         pg.display.set_caption("{:.2f}".format(self.clock.get_fps()))
         self.all_sprites.draw(self.screen)
-        self.draw_text(str("{:.2f}".format(self.clock.get_fps())), 36, WHITE, WIDTH / 2, 18)
+        self.draw_text(str(self.score), 36, WHITE, WIDTH / 2, 18)
         for i in range(NUM_STARS - len(self.stars)):
             self.star = Star(self)
             self.stars.add(self.star)

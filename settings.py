@@ -19,15 +19,15 @@ NUM_STARS = 75
 STAR_COLOR = 255, 240, 200
 
 # player
-PLAYER_IMG = "enemyBlue2.png"
+PLAYER_IMG = "img/enemyBlue2.png"
 PLAYER_SPEED = 8
 
 # gold
-GOLD_IMG = "gold.png"
+GOLD_IMG = "img/gold.png"
 
 # portal
-PORTAL_IMG = "portal.png"
-PORTAL_IMG2 = "portal1.png"
+PORTAL_IMG = "img/portal.png"
+PORTAL_IMG2 = "img/portal1.png"
 PORTAL_ROT_SPEED = 5
 
 # mob
