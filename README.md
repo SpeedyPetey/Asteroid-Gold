@@ -1,4 +1,4 @@
-# AsteroidGold
+# Asteroid-Gold
   ![Screenshot_2018-02-24-15-02-46 copy](https://github.com/SpeedyPetey/AsteroidGold/assets/36052093/b39ee895-ce94-42ef-affb-d5747fd83545)
 
 Using the arrow keys on the left, navigate your way through spinning asteroids, to reach the gold in the middle. There are bullets and portals that can aid your journey. Every time you reach the treasure your score goes up one, every time you explode one point is taken away from you.
